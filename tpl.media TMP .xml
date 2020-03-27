@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<slides>
+  <template>
+    <set id="src" type="str" def="" minmax="" sel="" title="Source" hint="..." />
+    <set id="ttl" type="str" def="New Block" minmax="" sel="" title="Title" hint="Slide title for system use" />
+    <set id="dur" type="int" def="7" minmax="1,999" sel="" title="Duration" hint="Slide duration, sec" />
+    <set id="mod" type="str" def="FILL" minmax="" sel="FILL, UNI, UNIFILL, NOFILL" title="Stretch mode" hint="..." />
+    <set id="tt" type="str" def="" minmax="" sel="" title="TOP TEXT :" hint="..." break="True"/>
+    <set id="tt_fs" type="int" def="24" minmax="6,90" sel="" title="font size," hint="..." />
+    <set id="tt_fc" type="col" def="#FFFFFFFF" minmax="" sel="" title="font color," hint="..." />
+    <set id="tt_bc" type="col" def="#99000000" minmax="" sel="" title="background color" hint="..." />
+    <set id="mt" type="str" def="" minmax="" sel="" title="CENTER TEXT :" hint="..." break="True"/>
+    <set id="mt_fs" type="int" def="32" minmax="6,90" sel="" title="font size," hint="..." />
+    <set id="mt_fc" type="col" def="#FFFFFFFF" minmax="" sel="" title="font color," hint="..." />
+    <set id="mt_bc" type="col" def="#99000000" minmax="" sel="" title="background color" hint="..." />
+    <set id="bt" type="str" def="" minmax="" sel="" title="BOTTOM TEXT :" hint="..." break="True"/>
+    <set id="bt_fs" type="int" def="16" minmax="6,90" sel="" title="font size," hint="..." />
+    <set id="bt_fc" type="col" def="#FFFFFFFF" minmax="" sel="" title="font color," hint="..." />
+    <set id="bt_bc" type="col" def="#99000000" minmax="" sel="" title="background color" hint="..." />
+  </template>
+</slides>

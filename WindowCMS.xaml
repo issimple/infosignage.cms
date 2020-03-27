@@ -1,0 +1,270 @@
+﻿<Window x:Class="WindowCMS"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="iSSimple-iNFOSignage.CMS" mc:Ignorable="d"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+   xmlns:local="clr-namespace:WpfAppControl;assembly=WpfAppcontrol"
+    WindowStyle="None" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowState="Maximized"
+    Name="WindowCMS" Height="591" Width="872" UseLayoutRounding="True">
+
+    <Window.Resources>
+
+        <!--SCROLLBAR TEMPLATES-->
+        <Style x:Key="Scrollbar_LineUpButton" TargetType="{x:Type RepeatButton}">
+            <Setter Property="OverridesDefaultStyle" Value="true"/>           
+        </Style>       
+        <Style x:Key="Scrollbar_LineDownButton" TargetType="{x:Type RepeatButton}">
+            <Setter Property="OverridesDefaultStyle" Value="true"/>
+        </Style>       
+        <Style x:Key="Scrollbar_LineLeftButton" TargetType="{x:Type RepeatButton}">
+            <Setter Property="OverridesDefaultStyle" Value="true"/>     
+        </Style>
+        <Style x:Key="Scrollbar_LineRightButton" TargetType="{x:Type RepeatButton}">
+            <Setter Property="OverridesDefaultStyle" Value="true"/>          
+        </Style>
+        <Style x:Key="ScrollBar_TrackRepeater" TargetType="{x:Type RepeatButton}">
+            <Setter Property="OverridesDefaultStyle" Value="true"/>
+            <Setter Property="IsTabStop" Value="false" />
+            <Setter Property="Focusable" Value="false" />
+            <Setter Property="Command" Value="ScrollBar.PageUpCommand" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type RepeatButton}">
+                        <Rectangle Fill="Transparent" />
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="ScrollBar_UpTrack" BasedOn="{StaticResource ScrollBar_TrackRepeater}" TargetType="{x:Type RepeatButton}">
+            <Setter Property="Command" Value="ScrollBar.PageUpCommand" />
+        </Style>
+        <Style x:Key="ScrollBar_DownTrack" BasedOn="{StaticResource ScrollBar_TrackRepeater}" TargetType="{x:Type RepeatButton}">
+            <Setter Property="Command" Value="ScrollBar.PageDownCommand" />
+        </Style>
+        <Style x:Key="ScrollBar_LeftTrack" BasedOn="{StaticResource ScrollBar_TrackRepeater}" TargetType="{x:Type RepeatButton}">
+            <Setter Property="Command" Value="ScrollBar.PageLeftCommand" />
+        </Style>
+        <Style x:Key="ScrollBar_RightTrack" BasedOn="{StaticResource ScrollBar_TrackRepeater}" TargetType="{x:Type RepeatButton}">
+            <Setter Property="Command" Value="ScrollBar.PageRightCommand" />
+        </Style>
+        <Style x:Key="ScrollBar_VerticalThumb" TargetType="{x:Type Thumb}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Thumb}">
+                        <Border CornerRadius="6" BorderBrush="Transparent" BorderThickness="0" Background="#ccc" />
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="MinHeight" Value="10" />
+            <Setter Property="MinWidth" Value="10" />
+        </Style>
+        <Style x:Key="ScrollBar_HorizontalThumb" TargetType="{x:Type Thumb}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Thumb}">
+                        <Border BorderThickness="0" Background="DarkGray" />
+                        <!-- TRACK COLOR -->
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="{x:Type ScrollBar}">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="MinWidth" Value="5" />
+            <!--Define a default vertical ScrollBar template with 2 RepeatButtons and Track-->
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ScrollBar}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="5"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0" />
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="0" />
+                            </Grid.RowDefinitions>
+                            <Border Grid.Row="1" BorderThickness="0" Background="Transparent" CornerRadius="4"/>
+                            <RepeatButton Grid.Row="0" Style="{DynamicResource Scrollbar_LineUpButton}" Command="ScrollBar.LineUpCommand" Content=" ^" />
+                            <Track Grid.Row="1" Name="PART_Track" IsDirectionReversed="True">
+                                <Track.DecreaseRepeatButton>
+                                    <RepeatButton Style="{DynamicResource ScrollBar_UpTrack}"/>
+                                </Track.DecreaseRepeatButton>
+                                <Track.Thumb>
+                                    <Thumb Style="{DynamicResource ScrollBar_HorizontalThumb}"/>
+                                </Track.Thumb>
+                                <Track.IncreaseRepeatButton>
+                                    <RepeatButton Style="{DynamicResource ScrollBar_DownTrack}"/>
+                                </Track.IncreaseRepeatButton>
+                            </Track>
+                            <RepeatButton Grid.Row="2" Style="{DynamicResource Scrollbar_LineDownButton}" Command="ScrollBar.LineDownCommand" Content="" />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="Orientation" Value="Horizontal" >
+                    <Setter Property="Background" Value="Transparent" />
+                    <Setter Property="MinHeight" Value="10" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type ScrollBar}">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="12"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="12" />
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="12" />
+                                    </Grid.ColumnDefinitions>
+                                    <Border Grid.Column="1" BorderThickness="0" Background="Transparent" CornerRadius="4"/>
+                                    <RepeatButton Grid.Column="0" Style="{DynamicResource Scrollbar_LineLeftButton}" Command="ScrollBar.LineLeftCommand" Content="L" />
+                                    <Track Grid.Column="1" Name="PART_Track">
+                                        <Track.DecreaseRepeatButton>
+                                            <RepeatButton Style="{DynamicResource ScrollBar_LeftTrack}"/>
+                                        </Track.DecreaseRepeatButton>
+                                        <Track.Thumb>
+                                            <Thumb Style="{DynamicResource ScrollBar_HorizontalThumb}"/>
+                                        </Track.Thumb>
+                                        <Track.IncreaseRepeatButton>
+                                            <RepeatButton Style="{DynamicResource ScrollBar_RightTrack}"/>
+                                        </Track.IncreaseRepeatButton>
+                                    </Track>
+                                    <RepeatButton Grid.Column="2" Style="{DynamicResource Scrollbar_LineRightButton}" Command="ScrollBar.LineRightCommand" Content=" >" />
+                                </Grid>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!-- LABEL BUTTON STYLE -->
+        <Style x:Key="LabelButton" TargetType="Label">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Background" Value="Black"/>
+            <Setter Property="Height" Value="45"/>
+            <Setter Property="MinWidth" Value="120"/>
+            <Setter Property="HorizontalContentAlignment" Value="Right"/>
+            <Setter Property="VerticalContentAlignment" Value="Bottom"/>
+            <Setter Property="BorderBrush" Value="LightGray"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Style.Triggers>
+                <EventTrigger RoutedEvent="MouseUp">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Storyboard.TargetProperty="Background.Color" AutoReverse="True" Duration="0:0:0.15" From="Black" To="#FF555555"></ColorAnimation>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
+
+    </Window.Resources>
+
+    <Grid Name="GridBack" >
+        <Viewbox>
+            <Grid Name="GridSetup"  Height="1080" Width="1920" Background="#FF1e1e1e">
+ 
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="610"/>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="340"/>
+                </Grid.ColumnDefinitions>
+                
+                <Grid Name="GridPlayerBack"  Grid.Column="0" Background="Black">
+                    <!-- PLAYBACK PREVIEW -->
+                    <!-- <local:AppControl x:Name="appControl" Margin="20"/> -->
+                </Grid>
+
+                <Grid Name="GridPlayerLiveControls" Grid.Column="0" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="5" Background="Black" Visibility="Visible">
+                    <StackPanel Orientation="Horizontal" Margin="2">
+                        <Label Name="LbPreviewMode" Content="CMS Preview" Foreground="White" Background="#6ab4d8" Margin="0,0,2,0"/>
+                        <Label Name="LbLiveMode" Content="Live with Sync" Foreground="DarkGray" Background="Gray"/>
+                        <Label Name="Lb01" Content="  "/>
+                        <Label Name="LbFitScreen" Content="Fit Screen" Foreground="White" Background="#6ab4d8" Margin="0,0,2,0"/>
+                        <Label Name="LbOriginalSize" Content="Original Size" Foreground="DarkGray" Background="Gray"/>
+                    </StackPanel>
+                </Grid>
+
+                <Grid Name="GridPlayerModeControls" Grid.Column="0" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="5" Background="Black">
+                    <StackPanel Orientation="Horizontal" Margin="2">
+                        <Label Name="LbTouchMode" Content="Touch/View Mode" Foreground="White" Background="#6ab4d8" Margin="0,0,2,0"/>
+                        <Label Name="LbEditMode" Content="Edit Mode" Foreground="DarkGray" Background="Gray"/>
+                    </StackPanel>
+                </Grid>
+
+                <GridSplitter Grid.Column="0" Width="5"/>
+
+                <Label Foreground="#FF2a2a2a" Content="iSSimple iNFOSignage.Manager" Grid.Column="1" FontSize="64" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="10"/>
+
+                <Grid Name="GridCMS" Grid.Column="1">
+                    <Grid VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="5" Height="40">
+                        <StackPanel Name="StackPanelPanelsControl" Orientation="Horizontal">
+                            <Label Content="Packages" Background="White" Margin="5"/>
+                            <Label Content="Screens" Background="White" Margin="5"/>
+                            <Label Content="Layers" Background="White" Margin="5"/>
+                            <Label Content="Blocks" Background="White" Margin="5"/>
+                            <Label Content="Playlist" Background="White" Margin="5"/>
+                            <Label Content="Media" Background="White" Margin="5"/>
+                        </StackPanel>
+                    </Grid>
+
+                   <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled"  Margin="5,50,5,5">
+                        <StackPanel Name="StackPanelCMS" Orientation="Horizontal">
+
+                            <!-- CHANNELS/PACKAGES: -->
+                            
+                            <!-- SCREENS: -->
+                            
+                            <!-- LAYERS: -->
+
+                            <!-- SOME SETTINGS: -->
+                                 <StackPanel Name="StackPanelSettings" Visibility="Visible" Orientation="Vertical" Margin="10" Width="180" HorizontalAlignment="Left">
+                                    <Label Name="LbCmsSetup"  Content="CMS SETTINGS" FontSize="36" Foreground="DarkGray" Margin="0"/>
+                                    <Label Name="LbCmsSetupRoot"  Content="Home root" FontSize="16" Foreground="DarkGray" Margin="0"/>
+                                    <TextBlock Name="TbRoot" Margin="5" TextWrapping="Wrap" Background="White" Padding="3"/>
+                                    <Label Name="LbBtnSaveCmsSetup" Content="SAVE" Style="{StaticResource LabelButton}" Foreground="GreenYellow"/>
+
+                                    <Label Name="LabelSettingHeader"  Content="CLIENT SETTINGS" FontSize="36" Foreground="DarkGray" Margin="0"/>
+                                    <WrapPanel Name="WrapPanelSettings">
+                                    <!-- Setup params loaded here -->
+                                    </WrapPanel>
+                                    <Label Name="LabelBtnSettingsSave" Content="SAVE" Style="{StaticResource LabelButton}" Foreground="GreenYellow" Visibility="Hidden"/>
+                                    <Label Name="LabelBtnSettingsReset" Content="RESET" Style="{StaticResource LabelButton}" Foreground="Orange" Visibility="Hidden"/>
+                                </StackPanel>
+
+                            <!-- BLOCKS: -->
+
+                            <!-- PLAYLIST: -->
+
+                            <!-- MEDIA: -->
+
+                        </StackPanel>
+                    </ScrollViewer>
+                </Grid>
+
+                <GridSplitter Grid.Column="1" Width="5"/>
+
+                <Grid Name="GridCMSUpdates" Background="#FF252525" Grid.Column="2" Margin="0,50,0,5">
+                    <!-- Updates Panel -->
+                </Grid>
+
+                <!-- USER SWITCH -->
+                <Grid Name="GridUserSelector" VerticalAlignment="Top" HorizontalAlignment="Right"  Grid.Column="2" Margin="5,5,120,5" Background="Black" Visibility="Hidden">
+                    <StackPanel Orientation="Horizontal" Margin="2" >
+                        <Label Name="AdminBtn" Content="Admin" Foreground="Black" Background="LightGray" Margin="0,0,2,0"  />
+                        <Label Name="UserBtn" Content="User" Foreground="DarkGray" Background="Gray" />
+                    </StackPanel>
+                </Grid>
+
+
+                <!-- MINIMIZE AND CLOSE-->
+                <Label Name="MinimizeBtn" Content="_" Width="25" Foreground="White" Background="DarkGray" Margin="0,5,25,0" VerticalAlignment="Top" HorizontalAlignment="Right" Grid.Column="2"/>
+                <Label Name="CloseBtn" Content="x" Width="15" Foreground="White" Background="DarkGray" Margin="0,5,5,0" VerticalAlignment="Top" HorizontalAlignment="Right" Grid.Column="2"/>
+        </Grid>
+            </Viewbox>
+    </Grid>
+</Window>

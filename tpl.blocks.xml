@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<blocks>
+  <template>
+    <set id="title" type="str" def="New Block" minmax="" sel="" title="Title" hint="..." />
+    <set id="dir" type="str" def="Block" minmax="" sel="" title="Directory" hint="..." />
+    
+    <set id="left" type="int" def="0" minmax="0,11520" sel="" title="Left" hint="..." break="True"/>
+    <set id="top" type="int" def="0" minmax="0,11520" sel="" title="Top" hint="..." />
+    <set id="width" type="int" def="240" minmax="0,11520" sel="" title="Width" hint="..." />
+    <set id="height" type="int" def="240" minmax="0,11520" sel="" title="Height" hint="..." />
+    
+    <set id="type" type="sel" def="HOR" minmax="" sel="HOR,VER,BLK,EFF,TXT,TIME,RSS,TWI,FACEBOOK,PLUGIN" title="Type" hint="..."  break="True"/>
+    <set id="source" type="str" def="" minmax="" sel="" title="Source" hint="..." />
+    <set id="dots" type="bool" def="False" minmax="" sel="" title="System info" hint="..." />
+    <set id="margin" type="int" def="0" minmax="0,25" sel="" title="Margin" hint="..." />
+    
+    <set id="top_text" type="str" def="" minmax="" sel="" title="TOP TEXT" hint="..." break="Collapse" />
+    <set id="top_text_font_size" type="int" def="24" minmax="6,180" sel="" title="   font size" hint="..." />
+    <set id="top_text_font_color" type="col" def="#FFFFFFFF" minmax="" sel="" title="   font color" hint="..." />
+    <set id="top_text_back_color" type="col" def="#99000000" minmax="" sel="" title="   background color" hint="..." />
+    <set id="top_text_align" type="sel" def="LEFT" minmax="" sel="LEFT,CENTER,RIGHT" title="   alignment" hint="..." />
+
+    <set id="mid_text" type="str" def="" minmax="" sel="" title="CENTER TEXT" hint="..." break="Collapse" />
+    <set id="mid_text_font_size" type="int" def="32" minmax="6,180" sel="" title="   font size" hint="..." />
+    <set id="mid_text_font_color" type="col" def="#FFFFFFFF" minmax="" sel="" title="   font color" hint="..." />
+    <set id="mid_text_back_color" type="col" def="#00000000" minmax="" sel="" title="   background color" hint="..." />
+    <set id="mid_text_align" type="sel" def="CENTER" minmax="" sel="LEFT,CENTER,RIGHT" title="   alignment" hint="..." />
+    
+    <set id="btm_text" type="str" def="" minmax="" sel="" title="BOTTOM TEXT" hint="..." break="Collapse" />
+    <set id="btm_text_font_size" type="int" def="16" minmax="6,180" sel="" title="   font size" hint="..." />
+    <set id="btm_text_font_color" type="col" def="#FFFFFFFF" minmax="" sel="" title="   font color" hint="..." />
+    <set id="btm_text_back_color" type="col" def="#99000000" minmax="" sel="" title="   background color" hint="..." />
+    <set id="btm_text_align" type="sel" def="LEFT" minmax="" sel="LEFT,CENTER,RIGHT" title="   alignment" hint="..." />
+    
+    <set id="simple_touch" type="bool" def="False" minmax="" sel="" title="Simple touch" hint="Add touch interactivity using exist playlist slides" break="True"/>
+
+    <set id="time_limit_enabled" type="bool" def="False" minmax="" sel="" title="SCHEDULED" hint="..." break="Collapse"/>
+    <set id="time_limit_from" type="timedate" def="08-00-00,2014-08-01" minmax="" sel="" title="   from date and time" hint="..." />
+    <set id="time_limit_to" type="timedate" def="18-00-00,2014-10-01" minmax="" sel="" title="   to date and time" hint="..." />
+  
+    <set id="link_to" type="str" def="" minmax="" sel="" title="Link to" hint="..." break="True"/>
+   </template>
+</blocks>

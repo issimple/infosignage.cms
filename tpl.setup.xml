@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<setup>
+  <template>
+    <set id="root" type="str" def="" minmax="" sel="" title="Content sub-root" hint="Switch all content root to specific sub-folder" />
+    <set id="width" type="int" def="" minmax="0,3840" sel="" title="Content layout width" hint="..." />
+    <set id="height" type="int" def="" minmax="0,3840" sel="" title="Content layout height" hint="..." />
+    <set id="bg" type="str" def="bg.jpg" minmax="" sel="" title="Background" hint="Background image; JPG format" />
+    <set id="fg" type="str" def="fg.png" minmax="" sel="" title="Image overlay" hint="Logo or front mask overlay image, top-left; PNG format" />
+    <set id="margin" type="str" def="0,0,0,0" minmax="" sel="" title="Content margins" hint="4 values for left,top,right and bottom margins, pixels" />
+    <set id="stack" type="str" def="HOR" minmax="" sel="HOR,VER" title="Blocks stack orientation" hint="Horizontal or Vertical tiles stack orientation" />
+    <set id="timedate" type="bool" def="False" minmax="" sel="" title="Time and date overlay" hint="Date and time overlay, bottom-right" />
+    <set id="sysinfo" type="bool" def="False" minmax="" sel="" title="System information" hint="Display system information" />
+    <set id="emg" type="bool" def="False" minmax="" sel="" title="Emergency mode" hint="Full screen emergency notification image" />
+      </template>
+</setup>

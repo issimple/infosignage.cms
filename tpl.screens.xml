@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<screens>
+  <template>
+    <set id="title" type="str" def="New Screen" minmax="" sel="" title="Title" hint="..." />
+    <set id="dir" type="str" def="NewScreen" minmax="" sel="" title="Directory" hint="..." />
+
+    <set id="layout" type="str" def="" minmax="" sel="HOR STACK,VER STACK,LAYERS" title="Layout" hint="..." break="True"/>
+
+    <set id="left" type="int" def="0" minmax="0,11520" sel="" title="Left" hint="..." break="True"/>
+    <set id="top" type="int" def="0" minmax="0,11520" sel="" title="Top" hint="..." />
+    <set id="width" type="int" def="240" minmax="0,11520" sel="" title="Width" hint="..." />
+    <set id="height" type="int" def="240" minmax="0,11520" sel="" title="Height" hint="..." />
+    <set id="margin" type="int" def="0" minmax="0,25" sel="" title="Margin" hint="..." />
+
+    <set id="time_limit_enabled" type="bool" def="False" minmax="" sel="" title="SCHEDULED" hint="..." break="True"/>
+    <set id="time_limit_from" type="timedate" def="08-00-00,2014-08-01" minmax="" sel="" title="   from date and time" hint="..." />
+    <set id="time_limit_to" type="timedate" def="18-00-00,2014-10-01" minmax="" sel="" title="   to date and time" hint="..." />
+  
+   </template>
+</screens>
